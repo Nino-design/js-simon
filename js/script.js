@@ -10,4 +10,29 @@ for(let i = 0; i < arrayLength; i++) {
     
     }
 
-    alert(randomArray);
+   const arrayNumbers = document.getElementById("numbers");
+   arrayNumbers.innerHTML = randomArray;
+
+    var timeLeft = 5;
+    var element = document.getElementById('countdown');
+    
+    var timerId = setInterval(countdown, 1000);
+    
+    function countdown() {
+      if (timeLeft == -1) {
+        clearTimeout(timerId);
+        for(let i = 1; i <= 5; i++){
+            element.innerHTML = ' ';
+            arrayNumbers.innerHTML = ' ';
+        }
+      } else {
+        element.innerHTML ='Hai 30 secondi per memorizzare i numeri!! ' + timeLeft + ' secondi rimasti';
+        timeLeft--;
+      }
+    }
+
+    setTimeout(function() {
+         for(let i = 1; i <= 5; i++){
+             prompt('inserisci i numeri visti precedentemente');
+         }
+      }, 7300)
